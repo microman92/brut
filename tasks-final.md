@@ -406,14 +406,14 @@ Mini App ────┘
 
 ## Задачи
 
-- [ ] Загрузить репозиторий в GitHub.
-- [ ] Создать Vercel project для `apps/web`.
-- [ ] Создать Vercel project для `apps/miniapp`.
-- [ ] Создать Vercel project для `apps/api`.
-- [ ] Добавить environment variables.
-- [ ] Подключить production API URL к web.
-- [ ] Подключить production API URL к Mini App.
-- [ ] Настроить CORS production.
+- [x] Загрузить репозиторий в GitHub.
+- [x] Создать Vercel project для `apps/web`.
+- [x] Создать Vercel project для `apps/miniapp`.
+- [x] Создать Vercel project для `apps/api`.
+- [x] Добавить environment variables (имена и Production/Preview окружения сверены в Vercel; значения секретов не раскрываются).
+- [x] Подключить production API URL к web.
+- [x] Подключить production API URL к Mini App.
+- [x] Настроить CORS production.
 - [ ] Настроить Telegram webhook.
 - [ ] Настроить production Mini App URL.
 - [ ] Проверить Supabase Cron.
@@ -443,10 +443,10 @@ API
 
 # Финальная проверка MVP
 
-- [ ] Сайт работает.
-- [ ] Услуги приходят из БД.
-- [ ] Барберы приходят из БД.
-- [ ] Слоты рассчитывает backend.
+- [x] Сайт работает.
+- [x] Услуги приходят из БД.
+- [x] Барберы приходят из БД.
+- [x] Слоты рассчитывает backend.
 - [ ] Запись сохраняется.
 - [ ] Двойная запись невозможна.
 - [ ] Отмена работает.
@@ -458,7 +458,7 @@ API
 - [ ] Запрос отзыва работает.
 - [ ] Админка работает.
 - [ ] Аналитика работает.
-- [ ] Проект задеплоен.
+- [x] Проект задеплоен.
 
 ---
 

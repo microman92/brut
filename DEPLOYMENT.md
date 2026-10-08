@@ -2,6 +2,16 @@
 
 Проект состоит из трёх приложений в одном npm-workspace-репозитории. Для каждого создаётся отдельный Vercel Project, подключённый к одному GitHub-репозиторию.
 
+## Production URLs
+
+| Приложение | URL |
+| --- | --- |
+| Сайт | <https://brut-7lyv.vercel.app> |
+| Telegram Mini App | <https://brut-mini-app.vercel.app> |
+| API | <https://brut-delta.vercel.app> |
+
+На API проверены `GET /health`, каталог услуг и мастеров, доступные дни и слоты. Запросы с доменов сайта и Mini App проходят CORS.
+
 ## Vercel Projects
 
 При импорте одного репозитория создай три проекта и задай им Root Directory:

@@ -265,7 +265,7 @@ export async function startApiServices(app: FastifyInstance) {
 
   if (isVercel) {
     if (process.env.TELEGRAM_WEBHOOK_URL?.trim()) {
-      void startTelegram();
+      await startTelegram();
     } else if (process.env.TELEGRAM_BOT_TOKEN) {
       app.log.error("На Vercel задайте TELEGRAM_WEBHOOK_URL; long polling там не запускается");
     }
