@@ -250,12 +250,9 @@ app.post("/api/v1/bookings/:token/reschedule", async (request) => {
 
 const isVercel = process.env.VERCEL === "1";
 const port = Number(process.env.PORT ?? process.env.API_PORT ?? 4000);
-try {
-  await ensureAdmin();
-} catch (error) {
-  app.log.error(error, "Администратор не создан");
-}
-if (!isVercel || process.env.TELEGRAM_WEBHOOK_URL?.trim()) {
+export default app;
+
+async function startTelegram() {
   try {
     const mode = await openTelegram();
     if (mode === "polling") app.log.info("Telegram: long polling");
@@ -263,11 +260,22 @@ if (!isVercel || process.env.TELEGRAM_WEBHOOK_URL?.trim()) {
   } catch (error) {
     app.log.error(error, "Telegram bot не запустился");
   }
-} else if (process.env.TELEGRAM_BOT_TOKEN) {
-  app.log.error("На Vercel задайте TELEGRAM_WEBHOOK_URL; long polling там не запускается");
 }
-await app.listen({ port, host: "0.0.0.0" });
-if (!isVercel) {
+
+if (isVercel) {
+  if (process.env.TELEGRAM_WEBHOOK_URL?.trim()) {
+    void startTelegram();
+  } else if (process.env.TELEGRAM_BOT_TOKEN) {
+    app.log.error("На Vercel задайте TELEGRAM_WEBHOOK_URL; long polling там не запускается");
+  }
+} else {
+  try {
+    await ensureAdmin();
+  } catch (error) {
+    app.log.error(error, "Администратор не создан");
+  }
+  await startTelegram();
+  await app.listen({ port, host: "0.0.0.0" });
   const reminders = 5 * 60_000;
   setInterval(() => {
     void runReminders().catch((error: unknown) => app.log.error(error, "Напоминания"));

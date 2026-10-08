@@ -94,6 +94,7 @@ export function registerAdmin(app: FastifyInstance) {
   app.post("/api/v1/admin/login", async (request) => {
     const body = z.object({ login: z.string().trim().min(1), password: z.string().min(1) }).parse(request.body);
     assertLoginAllowed(body.login);
+    await ensureAdmin();
     const admin = await prisma.adminUser.findUnique({ where: { login: body.login } });
     const ok = admin ? await verify(admin.passwordHash, body.password) : false;
     if (!admin || !ok) {
