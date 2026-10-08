@@ -249,7 +249,6 @@ app.post("/api/v1/bookings/:token/reschedule", async (request) => {
 });
 
 const isVercel = process.env.VERCEL === "1";
-const port = Number(process.env.PORT ?? process.env.API_PORT ?? 4000);
 export default app;
 
 async function startTelegram() {
@@ -275,7 +274,9 @@ if (isVercel) {
     app.log.error(error, "Администратор не создан");
   }
   await startTelegram();
-  await app.listen({ port, host: "0.0.0.0" });
+}
+
+if (!isVercel) {
   const reminders = 5 * 60_000;
   setInterval(() => {
     void runReminders().catch((error: unknown) => app.log.error(error, "Напоминания"));

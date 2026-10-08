@@ -1,15 +1,8 @@
-import Fastify, { type FastifyInstance } from "fastify";
+import app from "./api.js";
 
-let app: FastifyInstance;
+const port = Number(process.env.PORT ?? process.env.API_PORT ?? 3000);
 
-try {
-  ({ default: app } = await import("./app.js"));
-} catch (error) {
-  console.error("API_BOOTSTRAP_FAILED", error);
-  app = Fastify({ logger: true });
-  const unavailable = { ok: false, error: "API_BOOTSTRAP_FAILED" };
-  app.get("/health", async (_request, reply) => reply.status(503).send(unavailable));
-  app.setNotFoundHandler((_request, reply) => reply.status(503).send(unavailable));
-}
-
-export default app;
+app.listen({ port, host: "0.0.0.0" }).catch((error: unknown) => {
+  app.log.error(error, "API failed to start");
+  process.exitCode = 1;
+});
