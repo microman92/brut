@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { assertLoginAllowed, clearLoginFailures, noteLoginFailure } from "./login-limit";
-import { readSession, signSession } from "./session";
+import { assertLoginAllowed, clearLoginFailures, noteLoginFailure } from "./login-limit.js";
+import { readSession, signSession } from "./session.js";
 
 describe("сессия админа", () => {
   it("принимает свою подпись и отвергает чужую", () => {

@@ -1,12 +1,12 @@
 import { hash, verify } from "@node-rs/argon2";
 import type { FastifyInstance } from "fastify";
 import { z } from "zod";
-import { getAnalytics } from "./analytics";
-import { ApiError, cancelBooking, createBooking, rescheduleBooking } from "./booking";
-import { prisma } from "./db";
-import { assertLoginAllowed, clearLoginFailures, noteLoginFailure } from "./login-limit";
-import { readSession, signSession } from "./session";
-import { formatTashkent, tashkentDate } from "./slots";
+import { getAnalytics } from "./analytics.js";
+import { ApiError, cancelBooking, createBooking, rescheduleBooking } from "./booking.js";
+import { prisma } from "./db.js";
+import { assertLoginAllowed, clearLoginFailures, noteLoginFailure } from "./login-limit.js";
+import { readSession, signSession } from "./session.js";
+import { formatTashkent, tashkentDate } from "./slots.js";
 
 const settingKeys = [
   "cancel_cutoff_min",

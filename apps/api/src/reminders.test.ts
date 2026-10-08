@@ -1,8 +1,8 @@
 import { randomBytes } from "node:crypto";
 import { afterAll, describe, expect, it } from "vitest";
-import { prisma } from "./db";
-import { dueActions } from "./reminder-plan";
-import { runReminders } from "./reminders";
+import { prisma } from "./db.js";
+import { dueActions } from "./reminder-plan.js";
+import { runReminders } from "./reminders.js";
 
 const settings = { dayMinutes: 1440, shortMinutes: 30, reviewDelayMin: 60 };
 

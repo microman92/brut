@@ -1,8 +1,8 @@
-import { deliver } from "./bot";
-import { prisma } from "./db";
-import { reminderDayText, reminderSoonText, reviewAskText, whenLabel } from "./messages";
-import { dueActions, type ReminderAction, type ReminderSettings } from "./reminder-plan";
-import { formatTashkent, tashkentDate } from "./slots";
+import { deliver } from "./bot.js";
+import { prisma } from "./db.js";
+import { reminderDayText, reminderSoonText, reviewAskText, whenLabel } from "./messages.js";
+import { dueActions, type ReminderAction, type ReminderSettings } from "./reminder-plan.js";
+import { formatTashkent, tashkentDate } from "./slots.js";
 
 type Sender = (chatId: string, text: string) => Promise<boolean>;
 

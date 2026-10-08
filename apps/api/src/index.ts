@@ -1,12 +1,12 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import { z, ZodError } from "zod";
-import { ApiError, cancelBooking, createBooking, getBooking, listDays, listMyBookings, listSlots, rescheduleBooking } from "./booking";
-import { ensureAdmin, registerAdmin } from "./admin";
-import { createBarberLink, openTelegram, telegramWebhook } from "./bot";
-import { prisma } from "./db";
-import { runReminders } from "./reminders";
-import { readInitData, TelegramAuthError, verifyInitData } from "./telegram";
+import { ApiError, cancelBooking, createBooking, getBooking, listDays, listMyBookings, listSlots, rescheduleBooking } from "./booking.js";
+import { ensureAdmin, registerAdmin } from "./admin.js";
+import { createBarberLink, openTelegram, telegramWebhook } from "./bot.js";
+import { prisma } from "./db.js";
+import { runReminders } from "./reminders.js";
+import { readInitData, TelegramAuthError, verifyInitData } from "./telegram.js";
 
 const serviceSelect = {
   id: true,

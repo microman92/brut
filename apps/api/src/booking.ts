@@ -1,8 +1,8 @@
 import { randomBytes } from "node:crypto";
-import { bookingTelegramUrl, notifyCancelled, notifyCreated, notifyMoved } from "./bot";
-import { prisma } from "./db";
-import { addDays, canChange, collectSlots, formatTashkent, tashkentDate, weekday, zoned } from "./slots";
-import { whenLabel } from "./messages";
+import { bookingTelegramUrl, notifyCancelled, notifyCreated, notifyMoved } from "./bot.js";
+import { prisma } from "./db.js";
+import { addDays, canChange, collectSlots, formatTashkent, tashkentDate, weekday, zoned } from "./slots.js";
+import { whenLabel } from "./messages.js";
 
 export class ApiError extends Error {
   statusCode: number;

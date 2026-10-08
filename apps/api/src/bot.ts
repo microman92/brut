@@ -1,7 +1,7 @@
 import { randomBytes } from "node:crypto";
 import { Bot, InlineKeyboard, webhookCallback } from "grammy";
-import { prisma } from "./db";
-import { formatTashkent, tashkentDate } from "./slots";
+import { prisma } from "./db.js";
+import { formatTashkent, tashkentDate } from "./slots.js";
 import {
   barberBookedText,
   barberCancelledText,
@@ -13,7 +13,7 @@ import {
   startKind,
   whenLabel,
   type Card,
-} from "./messages";
+} from "./messages.js";
 
 const token = process.env.TELEGRAM_BOT_TOKEN?.trim() ?? "";
 export const bot = token ? new Bot(token) : null;

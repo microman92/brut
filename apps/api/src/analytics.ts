@@ -1,5 +1,5 @@
-import { prisma } from "./db";
-import { addDays, type Interval, subtractInterval, tashkentDate, weekday, zoned } from "./slots";
+import { prisma } from "./db.js";
+import { addDays, type Interval, subtractInterval, tashkentDate, weekday, zoned } from "./slots.js";
 
 type Period = { from: string; to: string };
 

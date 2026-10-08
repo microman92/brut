@@ -1,10 +1,10 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PrismaClient } from "@prisma/client";
 
-if (process.env.VERCEL !== "1") {
-  const envFile = resolve(dirname(fileURLToPath(import.meta.url)), "../../../.env");
+const envFile = resolve(dirname(fileURLToPath(import.meta.url)), "../../../.env");
+if (existsSync(envFile)) {
   for (const line of readFileSync(envFile, "utf8").split("\n")) {
     const trimmed = line.trim();
     if (!trimmed || trimmed.startsWith("#")) continue;

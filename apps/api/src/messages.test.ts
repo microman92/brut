@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { barberBookedText, confirmedText, movedText, startKind, whenLabel } from "./messages";
+import { barberBookedText, confirmedText, movedText, startKind, whenLabel } from "./messages.js";
 
 const card = {
   services: "Стрижка",

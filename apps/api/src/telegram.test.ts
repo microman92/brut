@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 import { describe, expect, it } from "vitest";
-import { verifyInitData } from "./telegram";
+import { verifyInitData } from "./telegram.js";
 
 const token = "123456:TEST";
 

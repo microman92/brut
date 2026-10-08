@@ -1,7 +1,7 @@
 import { afterAll, describe, expect, it } from "vitest";
-import { ApiError, createBooking } from "./booking";
-import { prisma } from "./db";
-import { addDays, tashkentDate, zoned } from "./slots";
+import { ApiError, createBooking } from "./booking.js";
+import { prisma } from "./db.js";
+import { addDays, tashkentDate, zoned } from "./slots.js";
 
 describe("гонка на один слот", () => {
   let serviceId = "";

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canChange, collectSlots, zoned } from "./slots";
+import { canChange, collectSlots, zoned } from "./slots.js";
 
 const date = "2026-10-06";
 
